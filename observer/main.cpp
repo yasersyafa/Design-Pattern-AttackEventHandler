@@ -1,18 +1,25 @@
 #include <iostream>
 #include "includes/Player.h"
+#include "includes/Enemy.h"
 #include "includes/UI.h"
 #include "includes/SoundSystem.h"
 #include "includes/ScoreSystem.h"
 
 int main() {
     Player player;
+    Enemy enemy;
+
     UI ui;
     SoundSystem soundSystem;
     ScoreSystem scoreSystem;
 
     player.attach(&ui);
     player.attach(&soundSystem);
-    player.attach(&scoreSystem);
+
+    enemy.attach(&soundSystem);
+    enemy.attach(&scoreSystem);
+    enemy.attach(&ui);
+
 
     std::string input;
     std::cout << "Ketik 'space' lalu tekan ENTER untuk menyerang (atau 'exit' untuk keluar):\n";
@@ -23,6 +30,7 @@ int main() {
 
         if (input == "space") {
             player.attack();
+            enemy.takeDamage(50); // Simulate enemy taking damage
         } else if (input == "exit") {
             break;
         } else {
