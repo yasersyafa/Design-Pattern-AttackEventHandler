@@ -6,9 +6,7 @@
 
 class UI : public IObserver {
 public:
-    void update() override {
-        std::cout << "Enemy HP Updated\n";
-    }
+    void update() override;
 };
 
 #endif // UI_H

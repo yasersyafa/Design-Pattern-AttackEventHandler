@@ -6,9 +6,7 @@
 
 class SoundSystem : public IObserver {
 public:
-    void update() override {
-        std::cout << "Play Attack Sound\n";
-    }
+    void update() override;
 };
 
 #endif // SOUNDSYSTEM_H

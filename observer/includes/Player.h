@@ -8,24 +8,14 @@ class Player : public ISubject {
 private:
     std::vector<IObserver*> observers;
 public:
-    void attack() {
-        // Trigger attack event
-        notify();
-    }
+    void attack();
 
-    void attach(IObserver* observer) override {
-        observers.push_back(observer);
-    }
+    void attach(IObserver* observer) override;
 
-    void detach(IObserver* observer) override {
-        observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
-    }
+    void detach(IObserver* observer) override;
 
-    void notify() override {
-        for (auto* observer : observers) {
-            observer->update();
-        }
-    }
+    void notify() override;  
+    
 };
 
 #endif // PLAYER_H
