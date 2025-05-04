@@ -1,5 +1,4 @@
 #include "../includes/ScoreSystem.hpp"
-#include <iostream>
 
 void ScoreSystem::onAttack(Enemy* enemy) {
     if (enemy->isDead()) {

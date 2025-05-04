@@ -1,6 +1,6 @@
 #pragma once
 #include "IEventListener.hpp"
-#include "Enemy.hpp"
+#include <iostream>
 
 class SoundSystem : public IEventListener {
 public:

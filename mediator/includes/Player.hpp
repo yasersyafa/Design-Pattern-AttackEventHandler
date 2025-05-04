@@ -1,11 +1,11 @@
 #pragma once
-#include "EventMediator.hpp"
+#include "GameEventMediator.hpp"
 
 class Player {
-private:
-    EventMediator& mediator;
-    Enemy& enemy;
 public:
-    Player(EventMediator& mediator, Enemy& enemy);
+    Player(GameEventMediator& mediator);
     void attack();
+
+private:
+    GameEventMediator& mediator;
 };

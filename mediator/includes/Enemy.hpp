@@ -1,11 +1,12 @@
 #pragma once
 
 class Enemy {
-    private:
-        int health;
-    public: 
-        Enemy(int hp);
-        void takeDamage(int amount);
-        int getHealth() const;
-        bool isDead() const;
+public:
+    Enemy(int hp);
+    void takeDamage(int dmg);
+    int getHealth() const;
+    bool isDead() const;
+
+private:
+    int health;
 };

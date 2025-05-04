@@ -2,8 +2,8 @@
 
 Enemy::Enemy(int hp) : health(hp) {}
 
-void Enemy::takeDamage(int amount) {
-    health -= amount;
+void Enemy::takeDamage(int dmg) {
+    health -= dmg;
     if (health < 0) health = 0;
 }
 
