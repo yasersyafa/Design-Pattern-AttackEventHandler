@@ -1,26 +1,9 @@
 #include <iostream>
-#include "includes/Player.h"
-#include "includes/Enemy.h"
-#include "includes/UI.h"
-#include "includes/SoundSystem.h"
-#include "includes/ScoreSystem.h"
+#include "includes/GameContext.h"
 
-int main() {
-    Player player;
-    Enemy enemy;
+GameContext setupGame();
 
-    UI ui;
-    SoundSystem soundSystem;
-    ScoreSystem scoreSystem;
-
-    player.attach(&ui);
-    player.attach(&soundSystem);
-
-    enemy.attach(&soundSystem);
-    enemy.attach(&scoreSystem);
-    enemy.attach(&ui);
-
-
+void startGame(GameContext& context) {
     std::string input;
     std::cout << "Ketik 'space' lalu tekan ENTER untuk menyerang (atau 'exit' untuk keluar):\n";
 
@@ -29,14 +12,18 @@ int main() {
         std::cin >> input;
 
         if (input == "space") {
-            player.attack();
-            enemy.takeDamage(50); // Simulate enemy taking damage
+            context.player.attack();
+            context.enemy.takeDamage(50); // Simulate enemy taking damage
         } else if (input == "exit") {
             break;
         } else {
             std::cout << "Input tidak dikenali. Ketik 'space' atau 'exit'.\n";
         }
     }
+}
 
+int main() {
+    GameContext context = setupGame();
+    startGame(context);
     return 0;
 }
